@@ -1,11 +1,10 @@
-echo Installing artix-archlinux-support.
+echo Installing artix-archlinux-support
 
 sudo pacman -S artix-archlinux-support
 
-echo Updating pacman.conf. 
+echo Updating pacman.conf 
 
-curl -OL https://github.com/FlareStormGaming/Arch-Dotfiles/pacman/pacman.conf
-sudo mv pacman.conf /etc/pacman.conf
+sudo mv pacman/pacman.conf /etc/pacman.conf
 
-echo Updating repositories.
+echo Updating repositories
 sudo pacman -Syu
