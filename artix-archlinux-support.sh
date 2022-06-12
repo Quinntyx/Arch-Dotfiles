@@ -1,6 +1,6 @@
 echo Installing artix-archlinux-support
 
-sudo pacman -S artix-archlinux-support
+sudo pacman -S --noconfirm artix-archlinux-support
 
 echo Updating pacman.conf 
 
