@@ -7,4 +7,5 @@ echo Updating pacman.conf.
 curl -OL https://github.com/FlareStormGaming/Arch-Dotfiles/pacman/pacman.conf
 sudo mv pacman.conf /etc/pacman.conf
 
+echo Updating repositories.
 sudo pacman -Syu
