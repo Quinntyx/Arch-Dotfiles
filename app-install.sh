@@ -14,7 +14,7 @@ cd src
 techo 'Installing widely-used packages (mlocate, wget, etc.)'
 pinst mlocate wget git base base-devel python3 zsh
 
-techo 'Installing messaging clients'
+techo 'Installing Discord Canary'
 pinst discord-canary
 
 techo 'Installing Kitty (terminal emulator)'
@@ -48,6 +48,15 @@ pinst polybar
 
 techo 'Installing yay (AUR helper)'
 pinst yay
+
+techo 'Installing picom'
+pecho '1: picom-ibhagwan-git (rounded corners, dual_kawase_blur) [recommended]'
+pecho '2: picom-jonaburg-git (ibhagwan + animations)'
+pecho '3: picom (main)'
+pecho '4: I have a compositor already. (skip)'
+read -p 'What version of picom do you want? [1-4] ' response
+case $response in 1)
+yay -S --noconfirm picom-ibhagwan-git
 
 techo 'Installing Neovim'
 pinst neovim
