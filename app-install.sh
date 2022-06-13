@@ -136,11 +136,11 @@ case $response in [yY][eE][sS]|[yY]|[jJ]|'')
   cd ../minimal
   sudo cp minimal.rasi ~/.local/share/rofi/themes
   cd ../murz 
-  sudo cp murz.razi ~/.local/share/rofi/themes
+  sudo cp murz.rasi ~/.local/share/rofi/themes
   cd ../nord
-  sudo cp nord.razi ~/.local/share/rofi/themes
+  sudo cp nord.rasi ~/.local/share/rofi/themes
   cd ../onedark
-  sudo cp onedark.razi ~/.local/share/rofi/themes
+  sudo cp onedark.rasi ~/.local/share/rofi/themes
   cd ~/src
   fecho "Launching rofi theme selection wizard. "
   rofi-theme-selector
