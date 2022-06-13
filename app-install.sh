@@ -50,13 +50,31 @@ techo 'Installing yay (AUR helper)'
 pinst yay
 
 techo 'Installing picom'
-pecho '1: picom-ibhagwan-git (rounded corners, dual_kawase_blur) [recommended]'
-pecho '2: picom-jonaburg-git (ibhagwan + animations)'
-pecho '3: picom (main)'
-pecho '4: I have a compositor already. (skip)'
+fecho '1: picom-ibhagwan-git (rounded corners, dual_kawase_blur) [recommended]'
+fecho '2: picom-jonaburg-git (ibhagwan + animations)'
+fecho '3: picom (main)'
+fecho '4: I have a compositor already. (skip)'
 read -p 'What version of picom do you want? [1-4] ' response
-case $response in 1)
-yay -S --noconfirm picom-ibhagwan-git
+case $response in 
+  1)
+    fecho Installing picom-ibhagwan-git
+    yay -S --noconfirm picom-ibhagwan-git
+    ;;
+  2) 
+    fecho Installing picom-jonaburg-git
+    yay -S --noconfirm picom-jonaburg-git
+    ;;
+  3)
+    fecho Installing picom
+    pinst picom
+    ;;
+  4)
+    fecho Skipping...
+    ;;
+  ?) 
+    fecho ERROR: Unrecognized Input
+    ;;
+esac            
 
 techo 'Installing Neovim'
 pinst neovim
@@ -89,11 +107,24 @@ case $response in [yY][eE][sS]|[yY]|[jJ]|'')
 ?) fecho 'Skipping...';;
 esac
 
+read -p 'Install rofi? [Y/n] ' response
+case $response in [yY][eE][sS]|[yY]|[jJ]|'')
+  fecho 'Installing'
+  pinst rofi
+  fecho 'rofi installed, to run it do rofi -modes "drun" -show drun or rofi -show run for drun and run, respectively. '
+  ;;
+?) fecho 'Skipping...';;
+esac
+
 read -p 'Install sxhkd (Simple X HotKey Daemon)? [Y/n] ' response
 case $response in [yY][eE][sS]|[yY]|[jJ]|'')
   fecho 'Installing'
   pinst sxhkd
   fecho 'sxhkd installed, to get it to start on system please put it in the .rc file of your choice. '
+
+  mkdir ~/.config/sxhkd
+  cp sxhkd/sxhkdrc ~/.config/sxhkd/
+
   read -p 'Start sxhkd? [Y/n] ' response2
   case $response2 in [yY][eE][sS]|[yY]|[jJ]|'')
     sxhkd &> /dev/null & disown
@@ -141,9 +172,9 @@ case $response in [yY][eE][sS]|[yY]|[jJ]|'')
 esac
 
 techo You have reached the end of the app install wizard. 
-read -p 'Switch to Kitty? [Y/n] ' response
+read -p 'Launch Kitty? [Y/n] ' response
 case $response in [yY][eE][sS]|[yY]|[jJ]|'')
-  fecho 'Switching!'
+  fecho 'Launching!'
   kitty & disown
   sleep 3;
   # kill -9 $PPID
