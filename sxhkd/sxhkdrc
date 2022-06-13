@@ -14,7 +14,7 @@ super + {_, alt + }q
   bspc node -{c, k}
 
 super + @space
-  rofi -modes "drun" -show drun -theme $HOME/run/rofi-collection/nord/nord.rasi
+  rofi -modes "drun" -show drun
 
 super + shift + s 
   flameshot gui
