@@ -1,4 +1,4 @@
-sudo
+sudo echo
 alias pinst='sudo pacman -S --noconfirm'
 B='\033[1;34m'
 NOCOLOR='\033[0m'

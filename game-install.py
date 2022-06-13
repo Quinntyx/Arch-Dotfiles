@@ -1,6 +1,8 @@
 import termcolor as tc
 import os
 
+os.system('sudo echo')
+
 def pprint(value):
     print('   ', tc.colored(value, 'cyan', attrs=['bold']))
 
@@ -11,7 +13,7 @@ def install(*targets):
     os.system(f"yay -S --noconfirm {' '.join(targets)}")
     print()
 
-def yesno(message, default=True):
+def yesno(message, default=True, waitfor=True):
     if default:
         end = tc.colored('[Y/n]', 'green')
     else:
@@ -23,6 +25,12 @@ def yesno(message, default=True):
     if not val: return default
     if val.lower() in ['y', 'yes']:
         return True
+    elif val.lower() in ['n', 'no']:
+        return False
+    else:
+        if waitfor:
+            eprint("Invalid, please try again. ")
+            return yesno(message, default, waitfor)
     return False
 
 
