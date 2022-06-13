@@ -15,7 +15,7 @@ mkdir ~/src
 cd ~/src
 
 techo 'Installing base packages (mlocate, wget, base, base-devel, python, etc. )'
-pinst mlocate wget git base base-devel python3 python3-pip zsh zip gzip unzip
+pinst mlocate wget git base base-devel python3 python-pip zsh zip gzip unzip
 pip install termcolor pynput
 
 techo 'Installing Discord Canary'
