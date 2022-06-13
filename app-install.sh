@@ -14,8 +14,9 @@ mkdir ~/src
 # sudo cp * ~/src
 cd ~/src
 
-techo 'Installing widely-used packages (mlocate, wget, etc.)'
-pinst mlocate wget git base base-devel python3 zsh
+techo 'Installing base packages (mlocate, wget, base, base-devel, python, etc. )'
+pinst mlocate wget git base base-devel python3 python3-pip zsh zip gzip unzip
+pip install termcolor pynput
 
 techo 'Installing Discord Canary'
 pinst discord-canary
@@ -64,27 +65,27 @@ case $response in
     yay -S --noconfirm picom-ibhagwan-git
     mkdir ~/.config/picom
     cp $DIR/picom/picom.conf ~/.config/picom/
-    fecho Please add picom & to a .rc file of your choice for autostartup. 
+    fecho 'Please add picom & to a .rc file of your choice for autostartup.' 
     ;;
   2) 
     fecho Installing picom-jonaburg-git
     yay -S --noconfirm picom-jonaburg-git
     mkdir ~/.config/picom 
     cp $DIR/picom/picom.conf ~/.config/picom/
-    fecho Please add picom & to a .rc file of your choice for autostartup. 
+    fecho 'Please add picom & to a .rc file of your choice for autostartup.' 
     ;;
   3)
     fecho Installing picom
     pinst picom
     mkdir ~/.config/picom 
     cp $DIR/picom/picom.conf ~/.config/picom/
-    fecho Please add picom & to a .rc file of your choice for autostartup. 
+    fecho 'Please add picom & to a .rc file of your choice for autostartup.' 
     ;;
   4)
-    fecho Skipping...
+    fecho 'Skipping...'
     ;;
   ?) 
-    fecho ERROR: Unrecognized Input
+    fecho 'ERROR: Unrecognized Input'
     ;;
 esac  
 
@@ -224,6 +225,18 @@ case $response in [yY][eE][sS]|[yY]|[jJ]|'')
   ;;
 ?) echo 'Skipping...';;
 esac
+
+techo ' Games'
+fecho '<----->'
+read -p 'Install game launchers? [Y/n] ' response
+case $response in [yY][eE][sS]|[yY]|[jJ]|'')
+  fecho Launching Game Install Wizard
+  python3 game-install.py
+  ;;
+?) fecho Skipping...
+  ;;
+esac
+  
 
 techo You have reached the end of the app install wizard. 
 read -p 'Launch Kitty? [Y/n] ' response
