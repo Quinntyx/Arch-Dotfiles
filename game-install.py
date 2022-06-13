@@ -17,7 +17,7 @@ def yesno(message, default=True):
     else:
         end = tc.colored('[y/N]', 'red')
 
-    print(tc.colored(message, 'cyan'), end=' ')
+    print(message, end=' ')
     print(end, end=': ')
     val = input()
     if not val: return default
