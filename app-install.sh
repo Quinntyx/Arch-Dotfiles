@@ -23,6 +23,15 @@ pinst kitty
 techo 'Installing Fira Code'
 pinst ttf-fira-code
 
+techo 'Installing MesloLGS NF'
+cd /usr/share/fonts 
+sudo wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf 
+sudo wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf 
+sudo wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf 
+sudo wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf 
+cd ~/src
+fc-cache -f -v
+
 techo 'Installing theming apps (skip if you have a DE that packages these, like Plasma, LXQt, XFCE, etc.)'
 read -p 'Install? [Y/n] ' response
 
