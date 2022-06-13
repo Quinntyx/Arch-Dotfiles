@@ -5,6 +5,11 @@ alias echo='f() { echo; echo -e "    ${B}$@${NOCOLOR}"; unset -f f; }; f'
 echo 'Updating mirrors...'
 sudo pacman -Sy
 
+echo 'Creating src folder'
+cd ~
+mkdir src
+cd src
+
 echo 'Installing widely-used packages (mlocate, wget, etc.)'
 pinst mlocate wget git base base-devel python3 zsh
 
@@ -13,6 +18,7 @@ pinst discord-canary
 
 echo 'Installing Kitty (terminal emulator)'
 pinst kitty
+pinst ttf-fira-code
 
 echo 'Installing theming apps (skip if you have a DE that packages these, like Plasma, LXQt, XFCE, etc.)'
 read -p 'Install? [Y/n] ' response
@@ -89,9 +95,26 @@ esac
 read -p 'Install NvChad? [Y/n] ' response
 case $response in [yY][eE][sS]|[yY]|[jJ]|'')
   echo 'Installing ripgrep (Required for Telescope Searching)'
-  pacman -S ripgrep
+  pinst ripgrep
   echo 'Installing NvChad...'
   git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+  ;;
+?) echo 'Skipping...';;
+esac
+
+read -p 'Install Powercord? [Y/n] ' response
+case $response in [yY][eE][sS]|[yY]|[jJ]|'')
+  echo 'Installing nodejs, npm'
+  pinst nodejs-lts-gallium npm
+  echo 'Installing Powercord...'
+  git clone https://github.com/powercord-org/powercord 
+  cd powercord
+  npm i
+  sudo npm run plug
+  cd ..
+  echo 'Restarting Discord Canary'
+  killall DiscordCanary 
+  discord-canary &> /dev/null & disown
   ;;
 ?) echo 'Skipping...';;
 esac
