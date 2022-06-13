@@ -1,7 +1,7 @@
 alias pinst='sudo pacman -S --noconfirm'
 B='\033[1;34m'
 NOCOLOR='\033[0m'
-alias fecho='f() { echo -e "    ${B}$@{NOCOLOR}"; unset -f f; }; f'
+alias fecho='f() { echo -e "    ${B}$@${NOCOLOR}"; unset -f f; }; f'
 alias techo='f() { echo; echo -e "    ${B}$@${NOCOLOR}"; unset -f f; }; f'
 echo 'Updating mirrors...'
 sudo pacman -Sy
