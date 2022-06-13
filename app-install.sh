@@ -64,18 +64,21 @@ case $response in
     yay -S --noconfirm picom-ibhagwan-git
     mkdir ~/.config/picom
     cp $DIR/picom/picom.conf ~/.config/picom/
+    fecho Please add picom & to a .rc file of your choice for autostartup. 
     ;;
   2) 
     fecho Installing picom-jonaburg-git
     yay -S --noconfirm picom-jonaburg-git
     mkdir ~/.config/picom 
     cp $DIR/picom/picom.conf ~/.config/picom/
+    fecho Please add picom & to a .rc file of your choice for autostartup. 
     ;;
   3)
     fecho Installing picom
     pinst picom
     mkdir ~/.config/picom 
     cp $DIR/picom/picom.conf ~/.config/picom/
+    fecho Please add picom & to a .rc file of your choice for autostartup. 
     ;;
   4)
     fecho Skipping...
@@ -83,7 +86,17 @@ case $response in
   ?) 
     fecho ERROR: Unrecognized Input
     ;;
-esac            
+esac  
+
+read -p 'Launch picom? [Y/n] ' response
+case $response in [yY][eE][sS]|[yY]|[jJ]|'') 
+    fecho Launching picom...
+    picom &> /dev/null & disown
+    ;;
+  ?) 
+    fecho Not launching picom.;;
+esac
+
 
 techo 'Installing Neovim'
 pinst neovim
