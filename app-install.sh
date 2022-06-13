@@ -236,6 +236,11 @@ case $response in [yY][eE][sS]|[yY]|[jJ]|'')
 ?) fecho Skipping...
   ;;
 esac
+
+techo ' System Utilities'
+fecho '<---------------->'
+fecho Launching System Utility Install Wizard
+python3 util-install.py
   
 
 techo You have reached the end of the app install wizard. 
