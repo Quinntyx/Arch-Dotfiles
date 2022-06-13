@@ -7,9 +7,11 @@ alias techo='f() { echo; echo -e "    ${B}$@${NOCOLOR}"; unset -f f; }; f'
 echo 'Updating mirrors...'
 sudo pacman -Sy
 
+DIR=$PWD
+
 techo 'Creating src folder'
 mkdir ~/src
-sudo cp * ~/src
+# sudo cp * ~/src
 cd ~/src
 
 techo 'Installing widely-used packages (mlocate, wget, etc.)'
@@ -60,14 +62,20 @@ case $response in
   1)
     fecho Installing picom-ibhagwan-git
     yay -S --noconfirm picom-ibhagwan-git
+    mkdir ~/.config/picom
+    cp $DIR/picom/picom.conf ~/.config/picom/
     ;;
   2) 
     fecho Installing picom-jonaburg-git
     yay -S --noconfirm picom-jonaburg-git
+    mkdir ~/.config/picom 
+    cp $DIR/picom/picom.conf ~/.config/picom/
     ;;
   3)
     fecho Installing picom
     pinst picom
+    mkdir ~/.config/picom 
+    cp $DIR/picom/picom.conf ~/.config/picom/
     ;;
   4)
     fecho Skipping...
@@ -156,8 +164,7 @@ case $response in [yY][eE][sS]|[yY]|[jJ]|'')
   fecho 'sxhkd installed, to get it to start on system please put it in the .rc file of your choice. '
 
   mkdir ~/.config/sxhkd
-  cd ~/src/
-  sudo cp ~/src/sxhkd/sxhkdrc ~/.config/sxhkd/
+  sudo cp $DIR/sxhkd/sxhkdrc ~/.config/sxhkd/
 
   read -p 'Start sxhkd? [Y/n] ' response2
   case $response2 in [yY][eE][sS]|[yY]|[jJ]|'')
