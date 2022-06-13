@@ -155,7 +155,7 @@ case $response in [yY][eE][sS]|[yY]|[jJ]|'')
   fecho 'sxhkd installed, to get it to start on system please put it in the .rc file of your choice. '
 
   mkdir ~/.config/sxhkd
-  cp sxhkd/sxhkdrc ~/.config/sxhkd/
+  sudo cp sxhkd/sxhkdrc ~/.config/sxhkd/
 
   read -p 'Start sxhkd? [Y/n] ' response2
   case $response2 in [yY][eE][sS]|[yY]|[jJ]|'')
