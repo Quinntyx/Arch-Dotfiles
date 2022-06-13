@@ -112,6 +112,35 @@ case $response in [yY][eE][sS]|[yY]|[jJ]|'')
   fecho 'Installing'
   pinst rofi
   fecho 'rofi installed, to run it do rofi -modes "drun" -show drun or rofi -show run for drun and run, respectively. '
+  fecho 'Installing extra rofi themes'
+  fecho '    Archived rofi-themes repo:'
+  mkdir rofi-themes
+  cd rofi-themes
+  git clone https://github.com/davatorium/rofi-themes.git
+  cd rofi-themes
+  cd User\ Themes 
+  sudo cp -r * ~/.local/share/rofi/themes
+  cd ~/src/rofi-themes
+  fecho "    Murzchnvok's rofi-collection repo:"
+  git clone https://github.com/Murzchnvok/rofi-collection
+  cd rofi-collection
+  cd dracula
+  sudo cp dracula.rasi ~/.local/share/rofi/themes
+  cd ../gruvbox
+  sudo cp gruvbox.rasi ~/.local/share/rofi/themes
+  cd ../material
+  sudo cp material.rasi ~/.local/share/rofi/themes
+  cd ../minimal
+  sudo cp minimal.rasi ~/.local/share/rofi/themes
+  cd ../murz 
+  sudo cp murz.razi ~/.local/share/rofi/themes
+  cd ../nord
+  sudo cp nord.razi ~/.local/share/rofi/themes
+  cd ../onedark
+  sudo cp onedark.razi ~/.local/share/rofi/themes
+  cd ~/src
+  fecho "Launching rofi theme selection wizard. "
+  rofi-theme-selector
   ;;
 ?) fecho 'Skipping...';;
 esac
