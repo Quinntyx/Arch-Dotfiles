@@ -226,12 +226,13 @@ case $response in [yY][eE][sS]|[yY]|[jJ]|'')
 ?) echo 'Skipping...';;
 esac
 
+cd $DIR
 techo ' Games'
 fecho '<----->'
 read -p 'Install game launchers? [Y/n] ' response
 case $response in [yY][eE][sS]|[yY]|[jJ]|'')
   fecho Launching Game Install Wizard
-  python3 $DIR/game-install.py
+  python3 game-install.py
   ;;
 ?) fecho Skipping...
   ;;
@@ -240,7 +241,7 @@ esac
 techo ' System Utilities'
 fecho '<---------------->'
 fecho Launching System Utility Install Wizard
-python3 $DIR/util-install.py
+python3 util-install.py
   
 
 techo You have reached the end of the app install wizard. 
