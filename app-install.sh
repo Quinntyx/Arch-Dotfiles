@@ -1,3 +1,4 @@
+sudo
 alias pinst='sudo pacman -S --noconfirm'
 B='\033[1;34m'
 NOCOLOR='\033[0m'
@@ -7,9 +8,9 @@ echo 'Updating mirrors...'
 sudo pacman -Sy
 
 techo 'Creating src folder'
-cd ~
-mkdir src
-cd src
+mkdir ~/src
+sudo cp * ~/src
+cd ~/src
 
 techo 'Installing widely-used packages (mlocate, wget, etc.)'
 pinst mlocate wget git base base-devel python3 zsh
