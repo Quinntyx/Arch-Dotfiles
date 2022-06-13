@@ -1,6 +1,7 @@
 alias pinst='sudo pacman -S --noconfirm'
 B='\033[1;34m'
-alias echo='f() { echo; echo -e "    ${B}$@"; unset -f f; }; f'
+NOCOLOR='\033[0m'
+alias echo='f() { echo; echo -e "    ${B}$@${NOCOLOR}"; unset -f f; }; f'
 echo 'Updating mirrors...'
 sudo pacman -Sy
 
@@ -31,7 +32,7 @@ echo 'Installing yay (AUR helper)'
 pinst yay
 
 echo 'Installing Neovim'
-pinst Neovim
+pinst neovim
 
 echo
 echo ' User Apps'
