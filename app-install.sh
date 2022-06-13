@@ -113,6 +113,9 @@ case $response in [yY][eE][sS]|[yY]|[jJ]|'')
   pinst rofi
   fecho 'rofi installed, to run it do rofi -modes "drun" -show drun or rofi -show run for drun and run, respectively. '
   fecho 'Installing extra rofi themes'
+  fecho 'Making ~/.local/share/rofi/themes'
+  mkdir ~/.local/share/rofi
+  mkdir ~/.local/share/rofi/themes
   fecho '    Archived rofi-themes repo:'
   mkdir rofi-themes
   cd rofi-themes
