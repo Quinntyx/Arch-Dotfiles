@@ -50,4 +50,24 @@ super + f
 super + shift + f 
   bspc node -t ~fullscreen
 
+super + alt + f 
+  bspc node -t ~tiled
 
+# Media Keys
+XF86AudioRaiseVolume
+  amixer set Master 3%+
+
+XF86AudioLowerVolume
+  amixer set Master 3%-
+
+ctrl + XF86AudioRaiseVolume
+  amixer set Master 10%+
+
+ctrl + XF86AudioLowerVolume
+  amixer set Master 10%-
+
+XF86AudioPlay
+  omnipause toggle
+
+XF86AudioMute
+  amixer set Master toggle

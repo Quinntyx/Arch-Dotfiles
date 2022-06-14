@@ -14,3 +14,7 @@ echo "    Done. "
 echo "Kitty: "
 cp ~/.config/kitty/kitty.conf kitty/kitty.conf
 echo "    Done. "
+
+echo "BSPWM: "
+cp ~/.config/bspwm/bspwmrc bspwm/bspwmrc
+echo "    Done. "

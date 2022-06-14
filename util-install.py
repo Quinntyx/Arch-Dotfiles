@@ -15,4 +15,8 @@ qinst('NVIDIA Proprietary Drivers?', 'nvidia')
 qinst('Notification System? (some DEs (Plasma, Gnome) package this)', 'dunst')
 if qinst('Optimus Manager?', 'optimus-manager-git'):
     qinst('Optimus Manager Qt Client?', 'optimus-manager-qt-git')
-if qinst('Install Timeshift?', 'timeshift')
+qinst('Install Timeshift?', 'timeshift')
+
+if pyacman.yesno("Install BSPWM?", default=False):
+    os.system("python3 bspwm-install.py")
+
