@@ -8,7 +8,7 @@ p.pprint("Installing bspwm")
 p.install('bspwm')
 
 p.pprint("Installing PipeWire")
-os.system("pipewire-install.sh")
+os.system("./pipewire-install.sh")
 
 if p.yesno("Install PavuControl (GUI Audio Mixer)? (recommended)"):
     p.pprint("Installing PavuControl")
