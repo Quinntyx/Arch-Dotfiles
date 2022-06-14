@@ -52,5 +52,9 @@ if yesno("Install An Anime Game?"):
     pprint("Installing An Anime Game!")
     install("an-anime-game-launcher-bin")
 
+if yesno("install DXVK?") :
+    pprint("Launching DXVK Install Wizard.")
+    os.system("installers/dxvk.sh")
+
 pprint("You have reached the end of the games installer. ")
 
