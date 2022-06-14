@@ -10,7 +10,7 @@ def qinst(msg, *pkg):
     return False
 
 
-qinst('GUI Printer Management?', 'system-config-printer'):
+qinst('GUI Printer Management?', 'system-config-printer')
 qinst('NVIDIA Proprietary Drivers?', 'nvidia')
 qinst('Notification System? (some DEs (Plasma, Gnome) package this)', 'dunst')
 if qinst('Optimus Manager?', 'optimus-manager-git'):
