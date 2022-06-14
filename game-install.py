@@ -45,6 +45,8 @@ if yesno("Install Heroic Games Launcher?"):
 if yesno("Install Lutris?"):
     pprint("Installing Lutris")
     install('lutris')
+    pprint("Installing gnutls")
+    install('gnutls', 'lib32-gnutls')
 
 if yesno("Install An Anime Game?"):
     pprint("Installing An Anime Game!")
