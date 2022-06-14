@@ -15,3 +15,4 @@ qinst('NVIDIA Proprietary Drivers?', 'nvidia')
 qinst('Notification System? (some DEs (Plasma, Gnome) package this)', 'dunst')
 if qinst('Optimus Manager?', 'optimus-manager-git'):
     qinst('Optimus Manager Qt Client?', 'optimus-manager-qt-git')
+if qinst('Install Timeshift?', 'timeshift')

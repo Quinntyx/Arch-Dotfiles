@@ -173,9 +173,13 @@ esac
 
 read -p 'Install sxhkd (Simple X HotKey Daemon)? [Y/n] ' response
 case $response in [yY][eE][sS]|[yY]|[jJ]|'')
-  fecho 'Installing'
+  fecho 'Installing sxhkd'
   pinst sxhkd
+  techo 'Installing OmniPause'
+  $DIR/installers/omnipause.sh
   fecho 'sxhkd installed, to get it to start on system please put it in the .rc file of your choice. '
+  
+  
 
   mkdir ~/.config/sxhkd
   sudo cp $DIR/sxhkd/sxhkdrc ~/.config/sxhkd/
