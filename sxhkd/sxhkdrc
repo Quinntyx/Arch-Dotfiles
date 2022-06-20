@@ -66,6 +66,12 @@ ctrl + XF86AudioRaiseVolume
 ctrl + XF86AudioLowerVolume
   amixer set Master 10%-
 
+alt + XF86AudioRaiseVolume
+  amixer set Capture 3%+
+
+alt + XF86AudioLowerVolume
+  amixer set Capture 3%-
+
 XF86AudioPlay
   omnipause toggle
 
