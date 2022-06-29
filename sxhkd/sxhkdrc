@@ -22,18 +22,18 @@ super + shift + s
 super + g 
   bspc node -s biggest.window
 
-super + {_, shift + } {Left,Down,Up,Right}
+super + {_, shift + } {h,j,k,l}
   bspc node -{f,s} {west,south,north,east}
 
 # navigation
 
-super + {Left,Down,Up,Right}
+super + {h,j,k,l}
   bspc node -v {-20 0, 0 20, 0 -20, 20 0}
 
-super + alt + {Left,Down,Up,Right}
+super + alt + {h,j,k,l}
   bspc node -z {left -20 0, bottom 0 20, top 0 -20, right 20 0}
 
-super + ctrl + {Left,Down,Up,Right}
+super + ctrl + {h,j,k,l}
   bspc node -z {right -20 0, top 0 20, bottom 0 -20, left 20 0}
 
 super + m
@@ -41,6 +41,12 @@ super + m
 
 super + g 
   bspc node -s biggest
+
+super + s 
+  bspc desktop -f prev
+
+super + d 
+  bspc desktop -f next
 
 # flags
 
@@ -77,3 +83,5 @@ XF86AudioPlay
 
 XF86AudioMute
   amixer set Master toggle
+
+
