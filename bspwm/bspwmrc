@@ -3,14 +3,19 @@
 # starting daemons
 sxhkd &
 pipewire &
+eww open topbar
 
 # wallpaper
 rm /tmp/xlivebg.sock
 xlivebg -n &
 
+# suppress the Wine system tray, we don't need it around these parts
+trayer --width 0 &
+
 # stuff
 xsetroot -cursor_name right_ptr
 picom --config ~/.config/picom/picom.conf --experimental-backends &
+./floating_picom_shadows.sh
 $HOME/.screenlayout/main-4k.sh
 
 # config bspwm
