@@ -33,3 +33,8 @@ mkdir dunst &> /dev/null
 cp -r ~/.config/dunst/* dunst
 echo "    Done. "
 
+echo "Wallpaper: "
+mkdir wall &> /dev/null
+cp ~/Pictures/TokyoNightWall.png wall
+echo "    Done. "
+
