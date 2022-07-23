@@ -1,24 +1,35 @@
 echo "Collecting dotfiles from system..."
 echo "SXHKD: "
-cp ~/.config/sxhkd/sxhkdrc sxhkd/sxhkdrc
+cp -r ~/.config/sxhkd/* sxhkd
 echo "    Done. "
 
-# echo "Pacman: "
-# cp /etc/pacman.conf pacman/pacman.conf
-# echo "    Done. "
+echo "Pacman: "
+mkdir pacman &> /dev/null
+cp /etc/pacman.conf pacman/pacman.conf
+echo "    Done. "
 
 echo "Picom: "
-cp ~/.config/picom/picom.conf picom/picom.conf
+mkdir picom &> /dev/null
+cp -r ~/.config/picom/* picom
 echo "    Done. "
 
 echo "Kitty: "
-cp ~/.config/kitty/kitty.conf kitty/kitty.conf
+mkdir kitty &> /dev/null
+cp -r ~/.config/kitty/* kitty
 echo "    Done. "
 
 echo "BSPWM: "
-cp ~/.config/bspwm/bspwmrc bspwm/bspwmrc
+mkdir bspwm &> /dev/null
+cp -r ~/.config/bspwm/* bspwm
 echo "    Done. "
 
 echo "Pipewire: "
-cp /etc/pipewire/pipewire.conf conf/pipewire.conf
+mkdir pipewire &> /dev/null
+cp -r /etc/pipewire/* pipewire
 echo "    Done. "
+
+echo "Dunst: "
+mkdir dunst &> /dev/null
+cp -r ~/.config/dunst/* dunst
+echo "    Done. "
+
