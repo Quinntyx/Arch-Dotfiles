@@ -1,0 +1,121 @@
+(defpoll SONG_ARTIST
+    :interval "1s"
+    :initial "None"
+    `cat /tmp/artists.tmp`
+)
+
+(defpoll SONG_TITLE
+    :interval "1s"
+    :initial "Not Playing"
+    `cat /tmp/title.tmp`
+)
+(defpoll SONG_NUMBER
+    :interval "1s"
+    :initial "1"
+    `cat /tmp/number.tmp`
+)
+
+(defpoll SONG_ART_URL
+    :interval "1s"
+    :initial ""
+    `scripts/getAlbumArt.sh`
+)
+
+(defpoll SONG_PROGRESS
+    :interval "1s"
+    :initial ""
+    `scripts/getPlayerProgress.sh`
+)
+
+(defwidget music []
+    (box
+        :class "musicBox left"
+        :orientation "h"
+        :halign "start"
+        :space-evenly false
+        (image
+            :class "musicLabel albumArt"
+            :path SONG_ART_URL
+            :image-height 55
+            :image-width 100
+        )
+        (box
+            :class "musicBox right"
+            :orientation "v"
+            :halign "start"
+            :valign "start"
+            :space-evenly false
+            (centerbox
+                :space-evenly false
+                (label
+                    :class "musicLabel title"
+                    :text SONG_TITLE
+                    :yalign 0.5
+                    :xalign 0
+                )
+                (box
+                    :class "progress"
+                    (progress
+                        :class "bar"
+                        :value {SONG_PROGRESS * 100}
+                        :orientation "h"
+
+                    )
+                )
+                (label
+                    :class "musicLabel number"
+                    :text SONG_NUMBER
+                    :xalign 0.5
+                    :yalign 0.7
+                )
+            )
+            (box
+                :class "musicLabel author"
+                :orientation "h"
+                :valign "start"
+                :spacing "5px"
+                :space-evenly false
+                (label
+                    :class "musicLabel author"
+                    :text SONG_ARTIST
+                    :yalign 0.5
+                    :xalign 0
+                )
+                (box 
+                    :class "musicLabel controller"
+                    :orientation "h"
+                    :spacing "3px"
+                    :valign "center"
+                    :halign "center"
+                    :space-evenly false
+                    :spacing 3
+                    (Button
+                        :content '玲'
+                        :onclick "playerctl previous"
+                    )
+                    (Button
+                        :content '契'
+                        :onclick "playerctl play-pause"
+                    )
+                    (Button
+                        :content '怜'
+                        :onclick "playerctl next"
+                    )
+                )
+            )
+        )
+    )
+)
+
+(defwidget Button [content onclick]
+    (eventbox
+        :class "button"
+        :onclick onclick
+        (label
+            :xalign 0.5
+            :yalign 0.5
+            :class "button contents"
+            :text content
+        )
+    )
+)

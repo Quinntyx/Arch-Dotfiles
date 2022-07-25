@@ -3,6 +3,8 @@
 # starting daemons
 sxhkd &
 pipewire &
+playerctld &
+polkit-dumb-agent &
 eww open topbar
 
 # wallpaper
@@ -15,7 +17,7 @@ trayer --width 0 &
 # stuff
 xsetroot -cursor_name right_ptr
 picom --config ~/.config/picom/picom.conf --experimental-backends &
-./floating_picom_shadows.sh
+./floating_picom_shadows.sh &
 $HOME/.screenlayout/main-4k.sh
 
 # config bspwm
@@ -31,8 +33,9 @@ bspc config automatic_scheme longest_side
 bspc config pointer_follows_focus true
 
 # monitor workspaces
-bspc monitor DP-2 -d 0 1 2 3 4 5 6 7 8 9 
-bspc monitor DP-4 -d 0 1 2 3 4 5 6 7 8 9
+bspc monitor DP-2 -d    "① " "ﭮ ②" "③ " "④ " "⑤ "
+bspc monitor DP-4 -d    '① ' '② ' '③ ' '④ ' '⑤ '
+bspc monitor DVI-D-0 -d '① ' '② ' '③ ' '④ ' '⑤ '
 
 bspc config normal_border_color "#ffcda9"
 bspc config active_border_color "#ffc089"

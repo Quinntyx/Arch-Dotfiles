@@ -1,0 +1,14 @@
+(defwidget desktops []
+  (box
+    :class "desktopIndicator"
+    :space-evenly false
+    (label
+      :class "desktopIndicator label"
+      :text workspace
+      :xalign 1
+      :yalign 0
+    )
+  )
+)
+
+(defpoll workspace :interval "10ms" "bspc query -D -d focused --names")

@@ -1,0 +1,33 @@
+* {
+  border-radius: 10px;
+  box-shadow: none !important;
+  outline: none !important; 
+}
+
+#nav-bar {
+  visibility: collapse
+}
+
+#TabsToolbar {
+  visibility: collapse !important
+}
+
+menupopup:not(.in-menulist) > menuitem,
+menupopup:not(.in-menulist) > menu {
+  padding-block: 0px !important;
+  min-height: unset !important;
+}
+
+:root {
+  --arrowpanel-menuitem-padding: 4px 8px !important;
+  width: calc(100vw - 50px) !important;
+  height: calc(100vh - 50px) !important;
+  margin: 25px !important;
+  background-color: #1a1b26 !important;
+}
+
+div#moz-custom-content-container {
+  border-radius: 10px;
+  background-color: red;
+}
+

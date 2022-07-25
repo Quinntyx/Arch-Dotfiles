@@ -1,0 +1,34 @@
+(include "./clock.yuck")
+(include "./audio.yuck")
+(include "./music.yuck")
+
+(defwidget contents []
+    (centerbox
+        :class "barContents"
+        :orientation "horizontal"
+        :space-evenly false
+        
+        (clock)
+
+        (music)
+
+        (audio)
+    )
+)
+
+(defwindow topbar
+    :monitor 0
+    :geometry (geometry
+        :x "0%"
+        :y "0px"
+        :width "1920px"
+        :height "60px"
+        :anchor "top center"
+    )
+    :stacking "bg"
+    :reserve (struts :distance "60px" :side "top")
+    :windowtype "dock"
+    :wm-ignore false
+    (contents)
+)
+

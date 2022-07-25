@@ -1,0 +1,77 @@
+(defpoll volume
+    :interval "0.01s"
+    "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -1"
+)
+
+(defpoll micgain
+    :interval "0.01s"
+    "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' ' { print $2 }' | tr -d '%' | head -1"
+)
+
+(defwidget percdisplay [label value varval variable command ?orientation]
+    (eventbox
+        :onhover "eww update ${variable}=true"
+        :onhoverlost "eww update ${variable}=false"
+        
+        (box
+            :orientation {orientation ?: "horizontal"}
+            :halign "end"
+            :valign "center"
+            :space-evenly false
+            (label
+                :class 'perclabelicon'
+                :text label
+            )
+            (revealer
+                :transition "slideleft"
+                :reveal varval
+                :duration "550ms"
+                :class "audioRevealer"
+                (scale
+                    :class 'percprogress'
+                    :value value
+                    :orientation {orientation ?: "horizontal"}
+                    :valign "center"
+                    :halign "center"
+                    :onchange command
+                    :min 0 
+                    :max 101
+                )
+            )   
+            (label
+                :class 'perclabel'
+                :text "${value}%"
+            )
+        )
+    )
+)
+
+(defvar SHOW_VOLUME false)
+(defvar SHOW_GAIN false)
+
+(defwidget audio []
+    (box
+        :orientation "vertical"
+        :valign "center"
+        :spacing "5px"
+        :halign "end"
+        (percdisplay
+            :class "hoverSlider"
+            :label "墳"
+            :value volume
+            :variable "SHOW_VOLUME"
+            :varval SHOW_VOLUME
+            :command "amixer set Master {}%"
+        )
+        (percdisplay
+            :class "hoverSlider"
+            :label ""
+            :value micgain
+            :variable "SHOW_GAIN"
+            :varval SHOW_GAIN
+            :command "amixer set Capture {}%"
+        )
+    )
+
+)
+

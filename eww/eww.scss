@@ -1,0 +1,138 @@
+// Variable Colors
+$background: #1A1B26;
+$foreground: #C0CAF5;
+$accent: #24283B;
+$bright: #80A8FD;
+$dark: #16161e;
+
+*{
+  all: unset;
+  background-color: $background;
+  color: $foreground;
+}
+
+// Main Bar
+.barContents {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.perclabelicon {
+  font: 15px "Monospace";
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+
+//Audio
+.percprogress trough {
+  all: unset;
+  border-radius: 5px;
+  min-height: 6px;
+  min-width: 80px;
+  background-color: $accent;
+}
+
+.percprogress trough highlight {
+  border-radius: 5px;
+  background-color: $bright;
+}
+
+.perclabel {
+  font-size: 10px;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 0px;
+  min-width: 30px;
+}
+
+// Music
+.musicLabel {
+  padding: 3px;
+  padding-left: 8px;
+  border-radius: 5px;
+}
+
+.musicLabel.author {
+  background-color: $accent;
+  min-width: 200px;
+  font-size: 9px;
+}
+
+.musicBox {
+    .title {
+        color: white;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .progress {
+        background: red;
+        padding: 3px;
+    }
+    .progress.bar {
+        min-width: 10px;
+        background: white;
+        color: red;
+    }
+    .progress.bar trough {
+        min-width: 100px;
+        background: green;
+        min-height: 5px;
+        padding: 5px;
+    }
+    .number {
+        padding: 3px 10px;
+        background: $accent;
+        margin: 5px;
+        margin-right: 0px;
+    }
+}
+
+.musicLabel.controller {
+  color: white;
+  min-width: 50px;
+  border-radius: 5px;
+  
+}
+
+.musicLabel.albumArt {
+   margin-top: -7px;
+}
+
+.musicBox.left {
+}
+
+.musicLabel.controller {
+   padding: 3px;
+   .button {
+      background: $accent;
+      padding: 2px 5px;
+      margin: 0px;
+      border-radius: 5px;
+      .contents {
+         font: 12px "Monospace";
+      }
+   }
+}
+
+// Clock
+.clock {
+   padding-left: 20px;
+}
+
+// Desktop Indicator
+.desktopIndicator {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 0px 10px 0px 7px;
+    min-width: 0px;
+    background-color: $accent;
+    border-radius: 10px;
+    margin: 20px 10px;
+ }
+
+ .desktopIndicator.label {
+    margin: 0px;
+    padding: 0px;
+    padding: 10px;
+ }

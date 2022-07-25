@@ -38,3 +38,23 @@ mkdir wall &> /dev/null
 cp ~/Pictures/TokyoNightWall.png wall
 echo "    Done. "
 
+echo "Neovim: "
+mkdir nvim &> /dev/null
+cp -r ~/.config/nvim/lua/custom/* nvim
+echo "    Done. "
+
+echo "EWW: "
+mkdir eww &> /dev/null
+cp -r ~/.config/eww/* eww
+echo "    Done. "
+
+echo "userChrome.css: "
+mkdir ffox &> /dev/null
+cp ~/.config/mozilla/chrome/userChrome.css ffox
+echo "    Done. "
+
+echo "zshrc: "
+mkdir zshrc &> /dev/null
+cp -r ~/.zshrc ~/.lib zshrc
+echo "    Done. "
+

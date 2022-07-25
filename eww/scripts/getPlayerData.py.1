@@ -1,0 +1,23 @@
+import os
+import sys
+
+arg = sys.argv[1]
+
+if arg == "metadata":
+    
+    os.system('playerctl metadata | grep title > ')
+
+    title = str(b' '.join(child.stdout.read().split()[3:]), 'utf-8')
+
+    if title.startswith("(") and ")" in title:
+        title = ")".join(title.split(")")[1:]).strip()
+    print(title)
+
+elif arg == "progress":
+    child = subprocess.Popen(['playerctl', 'metadata', '|grep', 'length'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+
+    length = int(' '.join(child.stdout.read().split()[3:]))
+
+    child = subprocess.Popen(['playerctl', 'position'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+
+    print(length / int(child.read()) * 100)

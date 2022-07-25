@@ -34,19 +34,14 @@ super + alt + {h,j,k,l}
   bspc node -z {left -20 0, bottom 0 20, top 0 -20, right 20 0}
 
 super + ctrl + {h,j,k,l}
-  bspc node -z {right -20 0, top 0 20, bottom 0 -20, left 20 0}
+  bspc node -z {right -20 0, tbg
+  op 0 20, bottom 0 -20, left 20 0}
 
 super + m
   bspc desktop -l next
 
 super + g 
   bspc node -s biggest
-
-super + s 
-  bspc desktop -f prev
-
-super + d 
-  bspc desktop -f next
 
 # flags
 
@@ -84,4 +79,15 @@ XF86AudioPlay
 XF86AudioMute
   amixer set Master toggle
 
+
+# Desktop Controls
+
+super + s 
+  bspc desktop -f prev
+
+super + d 
+  bspc desktop -f next
+
+super + alt + {s,d}
+  bspc node -d {prev,next}.local --follow;
 
